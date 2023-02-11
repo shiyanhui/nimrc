@@ -1,0 +1,5 @@
+require('options')
+require('autocmds')
+require('vars')
+require('keymaps')
+require('plugins.init')
