@@ -2,7 +2,7 @@ require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'}
 
   -- efficiency
-  use {'neoclide/coc.nvim', branch = 'release', config = function() require('plugins.coc') end}
+  -- use {'neoclide/coc.nvim', branch = 'release', config = function() require('plugins.coc') end}
   use {'junegunn/fzf', run = ':call fzf#install()'}
   use {'junegunn/fzf.vim', config = function() require('plugins.fzf') end}
   use {'easymotion/vim-easymotion', config = function() require('plugins.easymotion') end}
@@ -11,7 +11,7 @@ require('packer').startup(function(use)
   use {'ntpeters/vim-better-whitespace', config = function() require('plugins.whitespace') end}
   use {'junegunn/vim-easy-align', config = function() require('plugins.easyalign') end}
   use {'kylechui/nvim-surround', tag = 'main', config = function() require('nvim-surround').setup() end}
-  use {'github/copilot.vim', config = function() require('plugins.copilot') end}
+  -- use {'github/copilot.vim', config = function() require('plugins.copilot') end}
   use {
     'andymass/vim-matchup',
     event = 'VimEnter',

@@ -46,9 +46,9 @@ vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {na
 vim.api.nvim_create_user_command("OI", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
 
 -- Disable some file types
--- vim.cmd [[
-  -- augroup CocGroup
-    -- autocmd!
-    -- autocmd BufNew,BufEnter *.py execute "silent! CocDisable"
-  -- augroup end
--- ]]
+vim.cmd [[
+  augroup CocGroup
+    autocmd!
+    autocmd BufNew,BufEnter *.py execute "silent! CocDisable"
+  augroup end
+]]
