@@ -1,4 +1,4 @@
-local common = require('common')
+local common = require('core.common')
 
 vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1

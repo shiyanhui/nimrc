@@ -1,5 +1,4 @@
-local common  = require('common')
-local colors = require('onenord.colors').load()
+local common  = require('core.common')
 
 vim.api.nvim_create_autocmd({'BufWinEnter'}, {
   group = common.augroup,
@@ -51,15 +50,6 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
     vim.cmd [[
       setfiletype css
     ]]
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufEnter', {
-  group = common.augroup,
-  pattern = '*',
-  callback = function()
-    vim.api.nvim_set_hl(0, 'OverLength', { bg = colors.light_gray })
-    vim.fn.matchadd('OverLength', '\\%121v')
   end,
 })
 

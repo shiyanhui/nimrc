@@ -3,7 +3,7 @@ local common = {
   augroup    = vim.api.nvim_create_augroup('EventGroup', {
     clear = true
   }),
-  sidebar_width = 50
+  sidebar_width = 40
 }
 
 return common
