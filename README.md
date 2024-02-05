@@ -4,22 +4,8 @@ A simple NeoVim configuration.
 
 ## Install
 
-First install packer,
-
 ```shell
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
-
-Then clone this repository,
-
-```shell
-git clone git@github.com:shiyanhui/nimrc.git ~/.config/nvim
-```
-
-Finally initialize the environment,
-
-```shell
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+git clone git@github.com:shiyanhui/nimrc.git ~/.config/nvim && nvim
 ```
 
 ## Screenshots

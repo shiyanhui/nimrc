@@ -9,12 +9,12 @@ vim.o.magic        = true
 vim.o.ignorecase   = true
 vim.o.smartcase    = true
 vim.o.regexpengine = 1
-vim.o.jumpoptions  = 'stack'
+vim.o.jumpoptions  = "stack"
 
 -- displaying text
 vim.o.scrolloff     = 8
 vim.o.sidescrolloff = 10
-vim.o.fillchars     = 'vert: ,fold:·,eob: '
+vim.o.fillchars     = "vert: ,fold:·,eob: "
 vim.o.number        = true
 vim.o.wrap          = false
 vim.o.lazyredraw    = true
@@ -23,36 +23,36 @@ vim.o.lazyredraw    = true
 vim.cmd [[
   syntax on
 ]]
-vim.o.background    = 'dark'
+vim.o.background    = "dark"
 vim.o.hlsearch      = true
 vim.o.cursorline    = false
 vim.o.cursorcolumn  = false
 vim.o.termguicolors = true
-vim.o.t_8f          = '<Esc>[38;2;%lu;%lu;%lum'
-vim.o.t_8b          = '<Esc>[48;2;%lu;%lu;%lum'
+vim.o.t_8f          = "<Esc>[38;2;%lu;%lu;%lum"
+vim.o.t_8b          = "<Esc>[48;2;%lu;%lu;%lum"
 
 -- multiple windows
 vim.o.laststatus = 3
 vim.o.hidden     = true
-vim.o.term       = 'xterm-256color'
+vim.o.term       = "xterm-256color"
 vim.o.ttyfast    = true
 
 -- messages and info
-vim.o.shortmess = 'atIq'
+vim.o.shortmess = "atIq"
 vim.o.showcmd   = true
 vim.o.showmode  = true
 vim.o.ruler     = true
 vim.o.report    = 0
 
 -- selecting text
-vim.o.clipboard = 'unnamed'
+vim.o.clipboard = "unnamed"
 
 -- editing text
 vim.o.undolevels    = 1024
 vim.o.undofile      = false
-vim.o.backspace     = 'indent,eol,start'
-vim.o.matchpairs    = '(:),{:},[:]'
-vim.o.formatoptions = vim.o.formatoptions:gsub('r', '')
+vim.o.backspace     = "indent,eol,start"
+vim.o.matchpairs    = "(:),{:},[:]"
+vim.o.formatoptions = vim.o.formatoptions:gsub("r", "")
 
 -- tabs and indenting
 vim.o.tabstop     = 2
@@ -82,21 +82,21 @@ vim.o.updatetime = 300
 
 -- command line editing
 vim.o.history    = 1024
-vim.o.wildignore = '*.o,*.obj,*.swp,*.pyc,*.bak,*.tmp'
+vim.o.wildignore = "*.o,*.obj,*.swp,*.pyc,*.bak,*.tmp"
 vim.o.wildmenu   = true
 
 -- multi-byte characters
-vim.o.encoding  = 'utf-8'
-vim.o.ambiwidth = 'single'
+vim.o.encoding  = "utf-8"
+vim.o.ambiwidth = "single"
 
 -- various
 vim.o.loadplugins = true
-vim.o.signcolumn  = 'number'
+vim.o.signcolumn  = "number"
 
 -- terms options
-vim.o.t_vb       = ''
-vim.o.t_ti       = ''
-vim.o.t_te       = ''
-vim.o.ffs        = 'unix,dos,mac'
+vim.o.t_vb       = ""
+vim.o.t_ti       = ""
+vim.o.t_te       = ""
+vim.o.ffs        = "unix,dos,mac"
 vim.o.visualbell = true
 vim.o.scrolljump = 5

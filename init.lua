@@ -1,5 +1,2 @@
-require('options')
-require('vars')
-require('keymaps')
-require('plugins.init')
-require('autocmds')
+require("core")
+require("plugins")

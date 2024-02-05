@@ -1,4 +1,4 @@
-local common = require('common')
+local common = require('core.common')
 local colors = require('onenord.colors').load()
 
 vim.g.vista_blink                        = {0, 0}
@@ -22,7 +22,7 @@ vim.api.nvim_set_hl(0, 'VistaPrivate',   { link = 'GitSignsDelete' })
 vim.api.nvim_set_hl(0, 'VistaTag',       { link = 'Function' })
 vim.api.nvim_set_hl(0, 'VistaNormal',    { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'VistaNormal',    { bg = common.color_dark })
-vim.api.nvim_set_hl(0, 'VistaFloat',     { bg = colors.active })
+vim.api.nvim_set_hl(0, 'VistaFloat',     { bg = colors.bg })
 
 vim.api.nvim_create_autocmd({'FileType'}, {
   group = common.augroup,
