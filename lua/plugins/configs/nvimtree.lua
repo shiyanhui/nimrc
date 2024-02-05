@@ -1,4 +1,4 @@
-local common = require('common')
+local common = require('core.common')
 
 vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
@@ -20,9 +20,10 @@ require('nvim-tree').setup({
   view = {
     adaptive_size = false,
     width = common.sidebar_width,
-    hide_root_folder = true
+    hide_root_folder = true,
   },
   renderer = {
+    -- root_folder_label = false,
     group_empty = true,
     icons = {
       glyphs = {

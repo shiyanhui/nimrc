@@ -1,4 +1,4 @@
-local common = require('common')
+local common = require('core.common')
 local colors = require('onenord.colors').load()
 
 vim.g.vista_blink                        = {0, 0}
