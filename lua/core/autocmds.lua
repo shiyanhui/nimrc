@@ -65,5 +65,5 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 })
 
 vim.cmd([[
-  autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab
+  autocmd FileType java,python setlocal tabstop=4 shiftwidth=4 expandtab
 ]])

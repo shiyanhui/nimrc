@@ -31,12 +31,11 @@ local plugins = {
    },
 
   -- ui
-  { "mhinz/vim-startify" },
-  { "sindrets/diffview.nvim",          cmd = {"DiffviewFileHistory"} },
+  { "mhinz/vim-startify",              config = function() require("plugins.configs.vimstartify") end },
   { "nvim-tree/nvim-web-devicons",     config = function() require("plugins.configs.nvimwebdevicons") end },
   { "nvim-treesitter/nvim-treesitter", config = function() require('plugins.configs.treesitter') end, build = ":TSUpdate" },
   { "nvim-lualine/lualine.nvim",       config = function() require("plugins.configs.lualine") end, dependencies = { "nvim-tree/nvim-web-devicons" } },
-  { "akinsho/bufferline.nvim",         config = function() require("plugins.configs.bufferline") end, dependencies = { "nvim-tree/nvim-web-devicons" }, version = "*" },
+  { "akinsho/bufferline.nvim",         config = function() require("plugins.configs.bufferline") end, dependencies = { "nvim-tree/nvim-web-devicons" }, branch = "main" },
   { "f-person/git-blame.nvim",         config = function() require("plugins.configs.gitblame") end, cmd = {"GitBlameToggle"} },
   { "hiphish/rainbow-delimiters.nvim", config = function() require("plugins.configs.rainbowdelimiters") end },
   { "m4xshen/smartcolumn.nvim",        config = function() require("plugins.configs.smartcolumn") end },
@@ -44,16 +43,16 @@ local plugins = {
   { "lewis6991/gitsigns.nvim",         config = function() require("gitsigns").setup() end },
   { "petertriho/nvim-scrollbar",       config = function() require("scrollbar").setup() end },
   { "folke/todo-comments.nvim",        config = function() require("todo-comments").setup() end, dependencies = { "nvim-lua/plenary.nvim" } },
+  { "sindrets/diffview.nvim",          cmd = {"DiffviewFileHistory"} },
   {
     "nvim-tree/nvim-tree.lua",
-    -- version = "*",
-    tag = "nightly",
+    version = "*",
     lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require('plugins.configs.nvimtree')
+      require("plugins.configs.nvimtree")
     end,
   },
   {

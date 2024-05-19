@@ -10,7 +10,9 @@ vim.api.nvim_create_autocmd({'QuitPre'}, {
   group = common.augroup,
   callback = function()
     if vim.fn.winnr('$') == 2 then
-      vim.cmd("NvimTreeClose")
+      vim.cmd[[
+        NvimTreeClose
+      ]]
     end
   end,
 })
@@ -20,10 +22,9 @@ require('nvim-tree').setup({
   view = {
     adaptive_size = false,
     width = common.sidebar_width,
-    hide_root_folder = true,
   },
   renderer = {
-    -- root_folder_label = false,
+    root_folder_label = false,
     group_empty = true,
     icons = {
       glyphs = {

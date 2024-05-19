@@ -18,12 +18,12 @@ local options           = {
 }
 
 if (is_offset_nvimtree) then
-  options.offsets = {{
-    filetype   = 'NvimTree',
-    text       = '',
-    text_align = 'left',
-    separator  = false
-  }}
+ options.offsets = {{
+   filetype   = 'NvimTree',
+   text       = '',
+   text_align = 'left',
+   separator  = false
+ }}
 end
 
 require('bufferline').setup {

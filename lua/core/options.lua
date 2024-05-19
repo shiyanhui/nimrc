@@ -28,13 +28,10 @@ vim.o.hlsearch      = true
 vim.o.cursorline    = false
 vim.o.cursorcolumn  = false
 vim.o.termguicolors = true
-vim.o.t_8f          = "<Esc>[38;2;%lu;%lu;%lum"
-vim.o.t_8b          = "<Esc>[48;2;%lu;%lu;%lum"
 
 -- multiple windows
 vim.o.laststatus = 3
 vim.o.hidden     = true
-vim.o.term       = "xterm-256color"
 vim.o.ttyfast    = true
 
 -- messages and info
@@ -94,9 +91,6 @@ vim.o.loadplugins = true
 vim.o.signcolumn  = "number"
 
 -- terms options
-vim.o.t_vb       = ""
-vim.o.t_ti       = ""
-vim.o.t_te       = ""
 vim.o.ffs        = "unix,dos,mac"
 vim.o.visualbell = true
 vim.o.scrolljump = 5
