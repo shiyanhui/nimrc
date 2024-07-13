@@ -28,7 +28,7 @@ local plugins = {
     init = function()
       vim.g.matchup_matchparen_offscreen = { method = 'popup' }
     end
-   },
+  },
 
   -- ui
   { "mhinz/vim-startify",              config = function() require("plugins.configs.vimstartify") end },
@@ -54,11 +54,6 @@ local plugins = {
     config = function()
       require("plugins.configs.nvimtree")
     end,
-  },
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    config = function() require('plugins.configs.whichkey') end
   },
 
   -- languages
