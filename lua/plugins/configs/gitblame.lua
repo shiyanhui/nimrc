@@ -1,4 +1,4 @@
 require('gitblame').setup({
-  enabled = false,
+  enabled = true,
   gitblame_delay = 0,
 })
