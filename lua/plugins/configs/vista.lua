@@ -1,9 +1,9 @@
-local common = require("core.common")
+local common = require("plugins.configs.common")
 local colors = require("plugins.configs.common").colorscheme.colors
 
 vim.g.vista_blink                        = {0, 0}
 vim.g.vista_cursor_delay                 = 100
-vim.g.vista_default_executive            = 'coc'
+vim.g.vista_default_executive            = 'ctags'
 vim.g.vista_disable_statusline           = true
 vim.g.vista_echo_cursor_strategy         = 'floating_win'
 vim.g.vista_floating_border              = 'rounded'
