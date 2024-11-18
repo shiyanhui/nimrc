@@ -9,6 +9,7 @@ local plugins = {
       require("plugins.configs.onenord")
     end,
   },
+  { "ibhagwan/fzf-lua" },
   -- {
     -- "shiyanhui/monokai-pro.nvim",
     -- lazy = false,
@@ -33,22 +34,13 @@ local plugins = {
   { "kylechui/nvim-surround",         config = function() require("nvim-surround").setup() end, version = "*", event = "VeryLazy" },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
     dependencies = {
-      "github/copilot.vim",
-      "nvim-lua/plenary.nvim",
+      { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim", branch = "master" },
     },
     build = "make tiktoken",
     opts = require("plugins.configs.copilotchat").opts,
   },
-  -- {
-    -- "neovim/nvim-lspconfig",
-    -- event = { "BufReadPre", "BufNewFile" },
-    -- dependencies = {
-      -- { "antosha417/nvim-lsp-file-operations", config = true },
-    -- },
-    -- config = function() require("plugins.configs.nvimlspconfig") end,
-  -- },
   {
     "andymass/vim-matchup",
     init = function()
