@@ -54,10 +54,10 @@ vim.o.matchpairs    = "(:),{:},[:]"
 vim.o.formatoptions = vim.o.formatoptions:gsub("r", "")
 
 -- tabs and indenting
-vim.o.tabstop     = 2
-vim.o.shiftwidth  = 2
+vim.o.tabstop     = 4
+vim.o.shiftwidth  = 4
 vim.o.smarttab    = true
-vim.o.softtabstop = 2
+vim.o.softtabstop = 4
 vim.o.shiftround  = true
 vim.o.expandtab   = true
 vim.o.autoindent  = true

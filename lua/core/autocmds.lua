@@ -48,6 +48,6 @@ vim.api.nvim_create_autocmd({"BufWinEnter"}, {
   end,
 })
 
-vim.cmd([[
-  autocmd FileType c,cpp,java,python,go,swift,vue,javascript,html,css setlocal tabstop=4 shiftwidth=4 expandtab
-]])
+--vim.cmd([[
+  -- autocmd FileType html,css setlocal tabstop=2 shiftwidth=2 expandtab
+--]])
