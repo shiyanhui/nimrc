@@ -1,6 +1,12 @@
-require("smartcolumn").setup({
-  colorcolumn = "120",
-  disabled_filetypes = {
+local M = {}
+
+M.opts = {
+  NeoColumn = "120",
+  always_on = true,
+  custom_NeoColumn = {
+    c = "80",
+  },
+  excluded_ft = {
     "help",
     "text",
     "markdown",
@@ -12,8 +18,6 @@ require("smartcolumn").setup({
     "java",
     "copilot-chat",
   },
-  scope = "file",
-  custom_colorcolumn = {
-    c = "80",
-  },
-})
+}
+
+return M

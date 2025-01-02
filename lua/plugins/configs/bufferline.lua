@@ -29,6 +29,7 @@ end
 local highlights = {}
 if colorscheme.is_onenord() then
   highlights = {
+    fill                  = { bg = colors.bg },
     background            = { bg = colors.light_bg },
     buffer_selected       = { bg = colors.bg },
     buffer_visible        = { bg = colors.light_bg },
