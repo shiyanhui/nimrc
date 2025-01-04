@@ -10,11 +10,12 @@ local plugins = {
     end,
   },
   -- {
-    -- "shiyanhui/monokai-pro.nvim",
-    -- lazy = false,
-    -- priority = 1000,
+    -- "navarasu/onedark.nvim",
     -- config = function()
-      -- require("plugins.configs.monokaipro")
+      -- require('onedark').setup {
+          -- style = 'dark'
+      -- }
+      -- require('onedark').load()
     -- end,
   -- },
 
@@ -65,11 +66,11 @@ local plugins = {
   { "akinsho/bufferline.nvim",         config = function() require("plugins.configs.bufferline") end, dependencies = { "nvim-tree/nvim-web-devicons" }, branch = "main" },
   { "f-person/git-blame.nvim",         config = function() require("plugins.configs.gitblame") end },
   { "hiphish/rainbow-delimiters.nvim", config = function() require("plugins.configs.rainbowdelimiters") end },
-  { "m4xshen/smartcolumn.nvim",        config = function() require("plugins.configs.smartcolumn") end },
   { "shiyanhui/vista.vim",             config = function() require("plugins.configs.vista") end },
   { "lewis6991/satellite.nvim",        config = function() require("plugins.configs.satellite") end },
   { "lewis6991/gitsigns.nvim",         config = function() require("gitsigns").setup() end },
   { "folke/todo-comments.nvim",        config = function() require("todo-comments").setup() end, dependencies = { "nvim-lua/plenary.nvim" } },
+  { "ecthelionvi/NeoColumn.nvim",      opts = require("plugins.configs.neocolumn").opts },
   { "sindrets/diffview.nvim",          cmd = {"DiffviewFileHistory"} },
   {
     "nvim-tree/nvim-tree.lua",

@@ -16,7 +16,7 @@ function _G.show_document()
   end
 end
 
-vim.g.coc_global_extensions = {"coc-json"}
+vim.g.coc_global_extensions = {"coc-json", "coc-java", "coc-go", "coc-clangd", "coc-pyright", "coc-rust-analyzer"}
 
 ---------------- Keymaps ----------------
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
