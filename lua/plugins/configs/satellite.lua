@@ -1,6 +1,6 @@
 local colors = require("plugins.configs.common").colorscheme.colors
 
-require('satellite').setup {
+require("satellite").setup {
   current_only = false,
   winblend = 30,
   zindex = 40,
@@ -9,11 +9,11 @@ require('satellite').setup {
   handlers = {
     cursor = {
       enable = true,
-      symbols = { '' }
+      symbols = { "" }
     },
     search = {
       enable = true,
-      symbols = { '-' },
+      symbols = { "-" },
     },
     diagnostic = {
       enable = false,

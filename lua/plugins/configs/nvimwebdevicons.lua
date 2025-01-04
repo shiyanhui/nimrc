@@ -1,5 +1,5 @@
 local colors = require("plugins.configs.common").colorscheme.colors
-local devicons = require('nvim-web-devicons')
+local devicons = require("nvim-web-devicons")
 
 devicons.setup({
   color_icons = true;

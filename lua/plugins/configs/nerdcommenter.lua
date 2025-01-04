@@ -5,11 +5,11 @@ vim.g.NERDCommentEmptyLines      = true
 vim.g.NERDCompactSexyComs        = true
 vim.g.NERDCustomDelimiters       = {
   c = {
-    left = '/*',
-    right = '*/'
+    left = "/*",
+    right = "*/"
   },
   cpp = {
-    left = '/*',
-    right = '*/'
+    left = "/*",
+    right = "*/"
   },
 }

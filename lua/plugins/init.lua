@@ -1,31 +1,27 @@
 local lazy_opts = require("plugins.lazy")
 
 local plugins = {
-  {
-    "rmehri01/onenord.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("plugins.configs.onenord")
-    end,
-  },
   -- {
-    -- "navarasu/onedark.nvim",
+    -- "rmehri01/onenord.nvim",
+    -- lazy = false,
+    -- priority = 1000,
     -- config = function()
-      -- require('onedark').setup {
-          -- style = 'dark'
-      -- }
-      -- require('onedark').load()
+      -- require("plugins.configs.onenord")
     -- end,
   -- },
+  {
+    "navarasu/onedark.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function() require("plugins.configs.onedark") end
+  },
 
   -- efficiency
   { "junegunn/fzf",                   build  = ":call fzf#install()" },
   { "junegunn/fzf.vim",               config = function() require("plugins.configs.fzf") end },
   { "junegunn/vim-easy-align",        config = function() require("plugins.configs.easyalign") end },
-  -- We load copilot before coc because we want to override copilot's tab completion.
-  { "neoclide/coc.nvim",              config = function() require('plugins.configs.coc') end, branch = "master", build = "npm ci", lazy = false, priority = 100},
-  { "github/copilot.vim",             config = function() require('plugins.configs.copilot') end, lazy = false, priority = 200},
+  { "neoclide/coc.nvim",              config = function() require("plugins.configs.coc") end, branch = "master", build = "npm ci", lazy = false, priority = 100},
+  { "github/copilot.vim",             config = function() require("plugins.configs.copilot") end, lazy = false, priority = 200},
   { "easymotion/vim-easymotion",      config = function() require("plugins.configs.easymotion") end },
   { "scrooloose/nerdcommenter",       config = function() require("plugins.configs.nerdcommenter") end },
   { "ntpeters/vim-better-whitespace", config = function() require("plugins.configs.whitespace") end },
@@ -44,7 +40,7 @@ local plugins = {
   {
     "andymass/vim-matchup",
     init = function()
-      vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end
   },
   {
@@ -61,17 +57,27 @@ local plugins = {
   -- ui
   { "mhinz/vim-startify",              config = function() require("plugins.configs.vimstartify") end },
   { "nvim-tree/nvim-web-devicons",     config = function() require("plugins.configs.nvimwebdevicons") end },
-  { "nvim-treesitter/nvim-treesitter", config = function() require('plugins.configs.treesitter') end, build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", config = function() require("plugins.configs.treesitter") end, build = ":TSUpdate" },
   { "nvim-lualine/lualine.nvim",       config = function() require("plugins.configs.lualine") end, dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "akinsho/bufferline.nvim",         config = function() require("plugins.configs.bufferline") end, dependencies = { "nvim-tree/nvim-web-devicons" }, branch = "main" },
   { "f-person/git-blame.nvim",         config = function() require("plugins.configs.gitblame") end },
   { "hiphish/rainbow-delimiters.nvim", config = function() require("plugins.configs.rainbowdelimiters") end },
   { "shiyanhui/vista.vim",             config = function() require("plugins.configs.vista") end },
   { "lewis6991/satellite.nvim",        config = function() require("plugins.configs.satellite") end },
-  { "lewis6991/gitsigns.nvim",         config = function() require("gitsigns").setup() end },
+  { "mfussenegger/nvim-dap",           config = function() require("plugins.configs.nvimdap") end },
+  { "rcarriga/nvim-dap-ui",            config = function() require("plugins.configs.nvimdapui") end, dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+  { "theHamsta/nvim-dap-virtual-text", config = function() require("plugins.configs.nvimdapvirtualtext") end},
   { "folke/todo-comments.nvim",        config = function() require("todo-comments").setup() end, dependencies = { "nvim-lua/plenary.nvim" } },
+  { "lewis6991/gitsigns.nvim",         config = function() require("gitsigns").setup() end },
   { "ecthelionvi/NeoColumn.nvim",      opts = require("plugins.configs.neocolumn").opts },
   { "sindrets/diffview.nvim",          cmd = {"DiffviewFileHistory"} },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      delay = 1000,
+    },
+  },
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
