@@ -65,6 +65,10 @@ vim.o.smartindent = true
 
 -- folding
 vim.o.foldcolumn = "0"
+vim.o.foldenable = true
+vim.o.foldmethod = "indent"
+vim.o.foldcolumn = "0"
+vim.o.foldlevel = 99
 
 -- reading and writing files
 vim.o.write       = true
