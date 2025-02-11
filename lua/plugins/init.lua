@@ -53,6 +53,12 @@ local plugins = {
       require("xcodebuild").setup()
     end,
   },
+  {
+    "coffebar/transfer.nvim",
+    lazy = true,
+    cmd = { "TransferInit", "DiffRemote", "TransferUpload", "TransferDownload", "TransferDirDiff", "TransferRepeat" },
+    opts = require("plugins.configs.transfer"),
+  },
 
   -- ui
   { "mhinz/vim-startify",              config = function() require("plugins.configs.vimstartify") end },
