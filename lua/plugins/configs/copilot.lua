@@ -1,5 +1,6 @@
 local colors = require("plugins.configs.common").colorscheme.colors
 
+-- vim.api.nvim_del_keymap('i', '<C-e>')
 vim.keymap.set('i', '<C-e>', 'copilot#Accept("<Esc><S-a>")', {noremap = true, silent = true, expr=true, replace_keycodes = false})
 vim.keymap.set('i', '<C-s>', '<Plug>(copilot-suggest)')
 

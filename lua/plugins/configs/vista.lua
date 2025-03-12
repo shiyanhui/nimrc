@@ -47,4 +47,4 @@ vim.api.nvim_create_autocmd({
   end,
 })
 
-vim.keymap.set("n", "<Leader>t", ":Vista!!<CR>")
+vim.keymap.set("n", "<Leader>t", "<CMD>Vista!!<CR>")

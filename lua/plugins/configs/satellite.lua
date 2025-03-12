@@ -19,7 +19,7 @@ require("satellite").setup {
       enable = false,
     },
     gitsigns = {
-      enable = false,
+      enable = true,
     },
     marks = {
       enable = false,
