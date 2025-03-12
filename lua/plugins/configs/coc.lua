@@ -1,4 +1,5 @@
 local common = require("core.common")
+local colors = require("plugins.configs.common").colorscheme.colors
 
 function _G.check_back_space()
   local col = vim.fn.col(".") - 1
@@ -18,24 +19,46 @@ end
 
 vim.g.coc_global_extensions = {"coc-json", "coc-java", "coc-go", "coc-clangd", "coc-pyright", "coc-rust-analyzer"}
 
----------------- Keymaps ----------------
-local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-vim.keymap.set("i", "<TAB>",     'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
-vim.keymap.set("i", "<S-TAB>",   [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]],                                         opts)
-vim.keymap.set("i", "<c-space>", 'coc#refresh()',                                                                            {silent = true, expr = true})
-vim.keymap.set("n", "K",         '<CMD>lua _G.show_document()<CR>',                                                          {silent = true})
+---------------- Keymaps ---------------------
+local opts = { silent = true, noremap = true }
 
--- GoTo code navigation
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype ~= "swift" then
-      vim.keymap.set("n", "gd", "<Plug>(coc-definition)", {silent = true})
-    end
-  end,
-  group = common.augroup,
-})
--- vim.keymap.set("n", "gd", "<Plug>(coc-definition)",      {silent = true})
+local function is_tab_disabled()
+  local exclude_fts = {
+    "codecompanion",
+  }
+  return vim.tbl_contains(exclude_fts, vim.bo.filetype)
+end
+
+vim.keymap.set('i', '<TAB>', function()
+  if is_tab_disabled() then
+    return
+  end
+
+  return vim.fn["coc#pum#visible"]()
+    and vim.fn["coc#pum#next"](1)
+    or vim.fn['check_back_space']()
+    and '<TAB>'
+    or vim.fn["coc#refresh"]()
+end, vim.tbl_extend('force', opts, { expr = true, replace_keycodes = false }))
+
+vim.keymap.set('i', '<S-TAB>', function()
+  if is_tab_disabled() then
+    return
+  end
+
+  return vim.fn["coc#pum#visible"]()
+    and vim.fn["coc#pum#prev"](1)
+    or vim.api.nvim_replace_termcodes('<C-h>', true, true, true)
+end, vim.tbl_extend('force', opts, { expr = true }))
+
+-- local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+-- vim.keymap.set("i", "<TAB>",     'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+-- vim.keymap.set("i", "<S-TAB>",   [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]],                                         opts)
+
+vim.keymap.set("i", "<c-space>", 'coc#refresh()',                   {silent = true, expr = true})
+vim.keymap.set("n", "K",         '<CMD>lua _G.show_document()<CR>', {silent = true})
+
+vim.keymap.set("n", "gd", "<Plug>(coc-definition)",      {silent = true})
 vim.keymap.set("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
 vim.keymap.set("n", "gi", "<Plug>(coc-implementation)",  {silent = true})
 vim.keymap.set("n", "gr", "<Plug>(coc-references)",      {silent = true})
@@ -60,3 +83,6 @@ vim.api.nvim_set_keymap("i", "<C-P>", 'coc#float#has_scroll() ? "<c-r>=coc#float
 vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
 vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {nargs = '?'})
 vim.api.nvim_create_user_command("OI", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
+
+---------------- UI --------------------------
+vim.api.nvim_set_hl(0, 'CocFloating', { bg = colors.light_bg })

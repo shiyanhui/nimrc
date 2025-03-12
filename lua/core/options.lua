@@ -17,7 +17,7 @@ vim.o.sidescrolloff = 10
 vim.o.fillchars     = "vert: ,fold:·,eob: "
 vim.o.number        = true
 vim.o.wrap          = false
-vim.o.lazyredraw    = true
+vim.o.lazyredraw    = false
 
 -- syntax, highlighting and spelling
 vim.cmd [[
@@ -33,8 +33,8 @@ vim.o.termguicolors = true
 vim.o.laststatus = 3
 vim.o.hidden     = true
 vim.o.ttyfast    = true
--- vim.o.splitright = true
--- vim.o.splitbelow = true
+vim.o.splitright = false
+vim.o.splitbelow = false
 
 -- messages and info
 vim.o.shortmess = "atIq"

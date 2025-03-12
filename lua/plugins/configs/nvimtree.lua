@@ -5,13 +5,14 @@ vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors    = true
 
-vim.keymap.set("n", "<Leader><Tab>", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<Leader><Tab>", "<CMD>NvimTreeToggle<CR>")
 
 -- 判断filetype是否有效
 local is_filetype_valid = function(filetype)
   local invalid = (
     filetype == "" or
     filetype:match("NvimTree") ~= nil or
+    filetype:match("codecompanion") ~= nil or
     filetype:match("dapui_") ~= nil or
     filetype:match("dap-") ~= nil
   )
@@ -41,14 +42,6 @@ vim.api.nvim_create_autocmd("QuitPre", {
         if #vim.api.nvim_list_wins() > 1 then
           vim.api.nvim_win_close(w, true)
         end
-      end
-
-      -- 关闭dapui和dap
-      if require("dap").status() ~= "" then
-        require("dapui").close()
-        require("dap").terminate({
-          all = true
-        })
       end
     end
   end

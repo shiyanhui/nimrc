@@ -1,6 +1,6 @@
 local colorscheme       = require("plugins.configs.common").colorscheme
 local colors            = colorscheme.colors
-local is_offsets_enable = false
+local is_offsets_enable = true
 
 local options           = {
   separator_style       = "slant",
@@ -12,7 +12,10 @@ local options           = {
   show_close_icon       = false,
   show_duplicate_prefix = false,
   truncate_names        = false,
-  sort_by               = function(a, b)
+  custom_filter = function(buf, buf_nums)
+    return vim.bo[buf].filetype ~= "codecompanion"
+  end,
+  sort_by = function(a, b)
     return a.name < b.name
   end,
 }
