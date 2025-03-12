@@ -1,18 +1,22 @@
 local colorscheme       = require("plugins.configs.common").colorscheme
 local colors            = colorscheme.colors
-local is_offsets_enable = false
+local is_offsets_enable = true
 
-local options           = {
-  separator_style       = "slant",
-  mode                  = "buffers",
-  left_trunc_marker     = "",
-  right_trunc_marker    = "",
-  modified_icon         = "",
-  show_buffer_icons     = false,
-  show_close_icon       = false,
-  show_duplicate_prefix = false,
-  truncate_names        = false,
-  sort_by               = function(a, b)
+local options             = {
+  separator_style         = "slope",
+  mode                    = "buffers",
+  left_trunc_marker       = "",
+  right_trunc_marker      = "",
+  modified_icon           = "",
+  show_buffer_icons       = false,
+  show_buffer_close_icons = false,
+  show_close_icon         = false,
+  show_duplicate_prefix   = false,
+  truncate_names          = false,
+  custom_filter = function(buf, buf_nums)
+    return vim.bo[buf].filetype ~= "codecompanion"
+  end,
+  sort_by = function(a, b)
     return a.name < b.name
   end,
 }
@@ -60,6 +64,10 @@ elseif colorscheme.is_onedark() then
     separator_selected    = { fg = colors.bg, bg = colors.bg },
     separator_visible     = { fg = colors.bg, bg = colors.light_bg },
     trunc_marker          = { fg = colors.light_gray, bg = colors.bg },
+  }
+elseif colorscheme.is_monokai_pro() then
+  highlights = {
+    trunc_marker = { bg = colors.bg },
   }
 end
 
