@@ -42,14 +42,6 @@ vim.api.nvim_create_autocmd("QuitPre", {
           vim.api.nvim_win_close(w, true)
         end
       end
-
-      -- 关闭dapui和dap
-      if require("dap").status() ~= "" then
-        require("dapui").close()
-        require("dap").terminate({
-          all = true
-        })
-      end
     end
   end
 })

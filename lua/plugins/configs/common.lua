@@ -83,11 +83,23 @@ elseif M.colorscheme.is_onedark() then
     dark_red = colors.dark_red,
   }
 elseif M.colorscheme.is_monokai_pro() then
-  -- local colors = require("monokai-pro.colorscheme.palette.machine")
---
-  -- M.colorscheme.colors = {
-    -- red = colors.accent1
-  -- }
+  local colors = require("monokai-pro.colorscheme.palette.machine")
+
+  M.colorscheme.colors = {
+    dark = colors.dark2,
+    black = colors.dark1,
+    red = colors.accent1,
+    green = colors.accent4,
+    yellow = colors.accent3,
+    blue = colors.accent2,
+    purple = colors.accent6,
+    cyan = colors.accent5,
+    white = colors.text,
+    gray = colors.dimmed3,
+    orange = colors.accent2,
+    fg = colors.text,
+    bg = colors.background,
+  }
 end
 
 return M
