@@ -1,6 +1,6 @@
 local colorscheme       = require("plugins.configs.common").colorscheme
 local colors            = colorscheme.colors
-local is_offsets_enable = false
+local is_offsets_enable = true
 
 local options           = {
   separator_style       = "slant",

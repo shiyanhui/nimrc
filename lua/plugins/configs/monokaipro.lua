@@ -13,6 +13,7 @@ require("monokai-pro").setup({
     bufferline = {
       underline_selected = false,
       underline_visible = false,
+      bold = false,
     },
     indent_blankline = {
       context_highlight = "default",
