@@ -3,17 +3,16 @@ local lazy_opts = require("plugins.lazy")
 local plugins = {
   {
     "loctvl842/monokai-pro.nvim",
-     lazy = false,
-     priority = 1000,
-     config = function() require("plugins.configs.monokaipro") end,
-   },
+    lazy = false,
+    priority = 1000,
+    config = function() require("plugins.configs.monokaipro") end,
+  },
 
   -- efficiency
   { "junegunn/fzf",                   build  = ":call fzf#install()" },
   { "junegunn/fzf.vim",               config = function() require("plugins.configs.fzf") end },
   { "junegunn/vim-easy-align",        config = function() require("plugins.configs.easyalign") end },
   { "neoclide/coc.nvim",              config = function() require("plugins.configs.coc") end, branch = "master", build = "npm ci", lazy = false, priority = 100},
-  { "github/copilot.vim",             config = function() require("plugins.configs.copilot") end, lazy = false, priority = 200},
   { "easymotion/vim-easymotion",      config = function() require("plugins.configs.easymotion") end },
   { "scrooloose/nerdcommenter",       config = function() require("plugins.configs.nerdcommenter") end },
   { "ntpeters/vim-better-whitespace", config = function() require("plugins.configs.whitespace") end },
@@ -21,13 +20,12 @@ local plugins = {
   { "windwp/nvim-autopairs",          config = function() require("nvim-autopairs").setup() end },
   { "kylechui/nvim-surround",         config = function() require("nvim-surround").setup() end, version = "*", event = "VeryLazy" },
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "github/copilot.vim" },
-      { "nvim-lua/plenary.nvim", branch = "master" },
-    },
-    build = "make tiktoken",
-    opts = require("plugins.configs.copilotchat").opts,
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    version = false,
+    build = "make",
+    opts = require("plugins.configs.avante").opts,
+    dependencies = require("plugins.configs.avante").dependencies
   },
   {
     "andymass/vim-matchup",
@@ -51,7 +49,6 @@ local plugins = {
   { 'Bekaboo/dropbar.nvim',            config = function() require("plugins.configs.dropbar") end },
   { "f-person/git-blame.nvim",         config = function() require("plugins.configs.gitblame") end },
   { "hiphish/rainbow-delimiters.nvim", config = function() require("plugins.configs.rainbowdelimiters") end },
-  { "shiyanhui/vista.vim",             config = function() require("plugins.configs.vista") end },
   { "lewis6991/satellite.nvim",        config = function() require("plugins.configs.satellite") end },
   { "RRethy/vim-illuminate",           config = function() require("plugins.configs.illuminate") end },
   { "folke/todo-comments.nvim",        config = function() require("todo-comments").setup() end, dependencies = { "nvim-lua/plenary.nvim" } },
@@ -74,12 +71,18 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     version = "*",
     lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("plugins.configs.nvimtree")
     end,
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    opts = {
+      file_types = { "markdown", "Avante" },
+    },
+    ft = { "markdown", "Avante" },
   },
 }
 
