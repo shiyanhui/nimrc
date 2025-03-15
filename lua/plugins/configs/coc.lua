@@ -25,17 +25,7 @@ vim.keymap.set("i", "<S-TAB>",   [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>
 vim.keymap.set("i", "<c-space>", 'coc#refresh()',                                                                            {silent = true, expr = true})
 vim.keymap.set("n", "K",         '<CMD>lua _G.show_document()<CR>',                                                          {silent = true})
 
--- GoTo code navigation
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype ~= "swift" then
-      vim.keymap.set("n", "gd", "<Plug>(coc-definition)", {silent = true})
-    end
-  end,
-  group = common.augroup,
-})
--- vim.keymap.set("n", "gd", "<Plug>(coc-definition)",      {silent = true})
+vim.keymap.set("n", "gd", "<Plug>(coc-definition)",      {silent = true})
 vim.keymap.set("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
 vim.keymap.set("n", "gi", "<Plug>(coc-implementation)",  {silent = true})
 vim.keymap.set("n", "gr", "<Plug>(coc-references)",      {silent = true})

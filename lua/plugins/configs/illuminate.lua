@@ -4,6 +4,7 @@ require('illuminate').configure({
   case_insensitive_regex = false,
   disable_keymaps = true,
   filetypes_denylist = {
-    'NvimTree',
+    "NvimTree",
+    "codecompanion",
   }
 })

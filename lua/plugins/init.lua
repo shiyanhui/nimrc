@@ -13,19 +13,33 @@ local plugins = {
   { "junegunn/fzf.vim",               config = function() require("plugins.configs.fzf") end },
   { "junegunn/vim-easy-align",        config = function() require("plugins.configs.easyalign") end },
   { "neoclide/coc.nvim",              config = function() require("plugins.configs.coc") end, branch = "master", build = "npm ci", lazy = false, priority = 100},
+  { "github/copilot.vim",             config = function() require("plugins.configs.copilot") end },
   { "easymotion/vim-easymotion",      config = function() require("plugins.configs.easymotion") end },
   { "scrooloose/nerdcommenter",       config = function() require("plugins.configs.nerdcommenter") end },
-  { "ntpeters/vim-better-whitespace", config = function() require("plugins.configs.whitespace") end },
+  { "ntpeters/vim-better-whitespace", config = function() require("plugins.configs.betterwhitespace") end },
   { "ethanholz/nvim-lastplace",       config = function() require("plugins.configs.nvimlastplace") end },
   { "windwp/nvim-autopairs",          config = function() require("nvim-autopairs").setup() end },
   { "kylechui/nvim-surround",         config = function() require("nvim-surround").setup() end, version = "*", event = "VeryLazy" },
   {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    version = false,
-    build = "make",
-    opts = require("plugins.configs.avante").opts,
-    dependencies = require("plugins.configs.avante").dependencies
+    "olimorris/codecompanion.nvim",
+    init = function()
+      require("plugins.configs.fidget"):init()
+    end,
+    config = function() require("plugins.configs.codecompanion") end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "OXY2DEV/markview.nvim",
+      'saghen/blink.cmp',
+      "j-hui/fidget.nvim",
+    },
+  },
+  {
+    'saghen/blink.cmp',
+    dependencies = { 'rafamadriz/friendly-snippets' },
+    version = '*',
+    opts = require("plugins.configs.blink").opts,
+    opts_extend = require("plugins.configs.blink").opts_extend,
   },
   {
     "andymass/vim-matchup",
@@ -56,6 +70,30 @@ local plugins = {
   { "ecthelionvi/NeoColumn.nvim",      opts = require("plugins.configs.neocolumn").opts },
   { "sindrets/diffview.nvim",          cmd = {"DiffviewFileHistory"} },
   {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function() require("plugins.configs.nvimtree") end,
+  },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+    opts = {
+      preview = {
+        filetypes = { "markdown", "codecompanion" },
+        ignore_buftypes = {},
+      },
+      markdown = {
+        code_blocks = {
+          label_direction = "left",
+          pad_amount = 3,
+          min_width = 10000
+        }
+      }
+    },
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = require("plugins.configs.indentblankline").opts
@@ -63,26 +101,7 @@ local plugins = {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    opts = {
-      delay = 1000,
-    },
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("plugins.configs.nvimtree")
-    end,
-  },
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    opts = {
-      file_types = { "markdown", "Avante" },
-    },
-    ft = { "markdown", "Avante" },
+    opts = { delay = 1000, },
   },
 }
 
