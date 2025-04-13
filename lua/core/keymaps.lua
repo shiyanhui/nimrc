@@ -1,12 +1,13 @@
 vim.g.mapleader = ","
 
-vim.keymap.set("n", "<Leader>w", ":w!<CR>")
-vim.keymap.set("n", "<Leader>q", ":q!<CR>")
-vim.keymap.set("n", "<Leader>/", ":nohls<CR>")
-vim.keymap.set("n", "<Leader>p", ":Lazy<CR>")
-vim.keymap.set("n", "<Leader>cp", ":CopilotChatToggle<CR>", {silent = true, noremap = true})
+local opts = { silent = true, noremap = true }
 
-vim.keymap.set("n", "U", ":redo<CR>")
+vim.keymap.set("n", "<Leader>w", "<CMD>w!<CR>", opts)
+vim.keymap.set("n", "<Leader>q", "<CMD>q!<CR>", opts)
+vim.keymap.set("n", "<Leader>/", "<CMD>nohls<CR>", opts)
+vim.keymap.set("n", "<Leader>p", "<CMD>Lazy<CR>", opts)
+
+vim.keymap.set("n", "U", "<CMD>redo<CR>")
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("x", "p", "pgvy")
@@ -26,5 +27,8 @@ vim.keymap.set("n", "<C-t>", "<C-o>")
 vim.keymap.set("n", "<C-o>", "O")
 vim.keymap.set("i", "<C-o>", "<Esc>O")
 
-vim.keymap.set("n", "<C-j>", ":Jumps<CR>")
-vim.keymap.set("i", "<C-j>", "<Esc>:Jumps<CR>")
+vim.keymap.set('t', '<C-w>h', '<C-\\><C-n><C-w>h')
+vim.keymap.set('t', '<C-w>j', '<C-\\><C-n><C-w>j')
+vim.keymap.set('t', '<C-w>k', '<C-\\><C-n><C-w>k')
+vim.keymap.set('t', '<C-w>l', '<C-\\><C-n><C-w>l')
+vim.keymap.set('t', '<C-w>w', '<C-\\><C-n><C-w>w')
