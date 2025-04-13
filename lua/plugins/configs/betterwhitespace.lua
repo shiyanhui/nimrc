@@ -7,4 +7,4 @@ vim.g.current_line_whitespace_disabled_hard  = true
 vim.g.gstrip_whitelines_at_eof               = true
 vim.g.go_highlight_trailing_whitespace_error = false
 
-vim.keymap.set("n", "<Leader><Space>", ":StripWhitespace!<CR>")
+vim.keymap.set("n", "<Leader><Space>", "<CMD>StripWhitespace!<CR>")

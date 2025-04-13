@@ -18,9 +18,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy.view.config").keys.close = "<Esc>"
 
 return {
-  colorscheme = { "onenord" },
   ui = {
     size = { width = 0.66, height = 0.7 },
-    border = "rounded",
+    border = "none",
+    backdrop = 100,
+  },
+  install = {
+    colorscheme = { "monokai-pro-machine" },
   }
 }

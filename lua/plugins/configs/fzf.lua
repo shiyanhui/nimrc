@@ -1,15 +1,49 @@
-vim.g.fzf_history_dir         = '~/.local/share/fzf-history'
-vim.g.fzf_buffers_jump        = true
-vim.g.fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-vim.g.fzf_tags_command        = 'ctags -R'
-vim.g.fzf_commands_expect     = 'alt-enter,ctrl-x'
-vim.g.fzf_layout              = { window = { width = 0.88, height = 0.66 } }
+local fzf = require("fzf-lua")
 
-vim.keymap.set('n', '<Leader>f', ':Files<CR>')
-vim.keymap.set('n', '<Leader>b', ':Buffers<CR>')
-vim.keymap.set('n', '<Leader>ag', ':Ag<CR>')
+fzf.setup{
+  defaults = {
+    prompt = "❯ "
+  },
+  winopts = {
+    width      = 0.88,
+    height     = 0.66,
+    fullscreen = true,
+  },
+  keymap = {
+    builtin = {
+      false
+    },
+    fzf = {
+      false
+    }
+  },
+  previewers = {
+    builtin = {
+      title_fnamemodify = function(s)
+        return vim.fn.fnamemodify(s, ":p")
+      end
+    }
+  }
+}
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "<Leader>f", "<CMD>FzfLua files<CR>", opts)
+vim.keymap.set("n", "<Leader>b", "<CMD>FzfLua buffers<CR>", opts)
+vim.keymap.set("n", "<Leader>ag", "<CMD>FzfLua grep_project<CR>", opts)
+
+vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
+vim.keymap.set("n", "gy", fzf.lsp_typedefs, opts)
+vim.keymap.set("n", "gi", fzf.lsp_implementations, opts)
+vim.keymap.set("n", "gr", fzf.lsp_references, opts)
+vim.keymap.set("n", "gs", fzf.lsp_document_symbols, opts)
+vim.keymap.set("n", "gc", fzf.lsp_incoming_calls, opts)
+vim.keymap.set("n", "ge", fzf.lsp_document_diagnostics, opts)
+
+vim.keymap.set("n", "<C-f>", ":FzfLua ")
+
+-- Register fzf-lua as the UI interface for vim.ui.select
+fzf.register_ui_select()
 
 vim.cmd [[
-  command! -bang -nargs=* Ag call fzf#vim#ag(
-    \ <q-args>, {'options': extend(get(fzf#vim#with_preview(), 'options', []), ['--delimiter', ':', '--nth', '4..'])}, <bang>0)
+  cab ff FzfLua
 ]]
