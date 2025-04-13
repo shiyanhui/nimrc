@@ -6,7 +6,7 @@ devicons.setup({
 })
 
 for filetype, icon in pairs(devicons.get_icons()) do
-  icon.color = colors.blue
+  -- icon.color = colors.blue
   devicons.set_icon({
     [filetype] = icon
   })
