@@ -17,7 +17,7 @@ vim.o.sidescrolloff = 10
 vim.o.fillchars     = "vert: ,fold:·,eob: "
 vim.o.number        = true
 vim.o.wrap          = false
-vim.o.lazyredraw    = true
+vim.o.lazyredraw    = false
 
 -- syntax, highlighting and spelling
 vim.cmd [[
@@ -33,8 +33,9 @@ vim.o.termguicolors = true
 vim.o.laststatus = 3
 vim.o.hidden     = true
 vim.o.ttyfast    = true
--- vim.o.splitright = true
--- vim.o.splitbelow = true
+vim.o.splitright = false
+vim.o.splitbelow = false
+vim.o.winborder  = "rounded"
 
 -- messages and info
 vim.o.shortmess = "atIq"
@@ -52,6 +53,7 @@ vim.o.undofile      = true
 vim.o.backspace     = "indent,eol,start"
 vim.o.matchpairs    = "(:),{:},[:]"
 vim.o.formatoptions = vim.o.formatoptions:gsub("r", "")
+vim.o.completeopt   = ""
 
 -- tabs and indenting
 vim.o.tabstop     = 2
@@ -68,7 +70,7 @@ vim.o.foldcolumn = "0"
 vim.o.foldenable = true
 vim.o.foldmethod = "indent"
 vim.o.foldcolumn = "0"
-vim.o.foldlevel = 99
+vim.o.foldlevel  = 99
 
 -- reading and writing files
 vim.o.write       = true
