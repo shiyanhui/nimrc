@@ -7,4 +7,4 @@ function upload()
   end
 end
 
-vim.api.nvim_set_keymap("n", "<leader>u", "<cmd>lua upload()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>u", "<CMD>lua upload()<CR>", { noremap = true, silent = true })

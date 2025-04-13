@@ -13,6 +13,7 @@ M.opts = {
     "NvimTree",
     "lazy",
     "startify",
+    "dashboard",
     "alpha",
     "vista",
     "java",
