@@ -91,7 +91,7 @@ elseif M.colorscheme.is_onedark() then
     dark_gray = colors.grey
   }
 elseif M.colorscheme.is_monokai_pro() then
-  local colors = require("monokai-pro.colorscheme.palette.machine")
+  local colors = require("monokai-pro.palette.machine")
 
   M.colorscheme.colors = {
     dark = colors.dark2,
