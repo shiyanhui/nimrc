@@ -25,6 +25,7 @@ require("monokai-pro").setup({
       Directory                           = { bg = colors.bg, fg = colors.fg },
       NormalFloat                         = { bg = colors.bg },
       FloatBorder                         = { bg = colors.bg, fg = colors.cyan },
+      WinBar                              = { bg = colors.bg, fg = colors.fg },
       WinBarNC                            = { bg = colors.bg, fg = colors.dark_gray },
       IlluminatedWordRead                 = { bg = colors.light_gray, underline = true },
       IlluminatedWordText                 = { bg = colors.light_gray, underline = true },
