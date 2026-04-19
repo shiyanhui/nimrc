@@ -52,7 +52,13 @@ local plugins = {
   -- ui
   { "mhinz/vim-startify",                  config = function() require("plugins.configs.vimstartify") end },
   { "nvim-tree/nvim-web-devicons",         config = function() require("plugins.configs.nvimwebdevicons") end },
-  { "nvim-treesitter/nvim-treesitter",     config = function() require("plugins.configs.treesitter") end, build = ":TSUpdate" },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
+    config = function() require("plugins.configs.treesitter") end,
+  },
   { "nvim-lualine/lualine.nvim",           config = function() require("plugins.configs.lualine") end, dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "akinsho/bufferline.nvim",             config = function() require("plugins.configs.bufferline") end, dependencies = { "nvim-tree/nvim-web-devicons" }, branch = "main" },
   { "Bekaboo/dropbar.nvim",                config = function() require("plugins.configs.dropbar") end },
